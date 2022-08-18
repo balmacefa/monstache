@@ -45,3 +45,17 @@ $(TARGET): $(TARGET).go
 	zip -r $(BUILD_DIR)/$(TARGET)-$(GIT_TAG).zip $(BUILD_DIR)
 clean:
 	$(RM) -R $(BUILD_DIR)
+
+run:
+	echo "🦄🦄 Start..."
+	./bin/monstache -v
+	./bin/monstache -f ./monstache.toml
+
+docker_build:
+	docker build -t sinpay/monstache .
+
+# docker run --rm --net=host -v ~/plugin:/tmp/plugin rwynn/monstache:6.7.4 -mapper-plugin-path /tmp/plugin/plugin.so
+docker_run:
+	docker run -i --rm -v sinpay/monstache
+
+docker: docker_build docker_run

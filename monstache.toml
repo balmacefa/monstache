@@ -1,0 +1,26 @@
+mapper-plugin-path = "/app/plugin.so"
+mongo-url = "mongodb://localhost"
+
+elasticsearch-urls = ["http://localhost:9200"]
+
+elasticsearch-max-conns = 10 
+
+replay = true
+
+resume = true
+
+enable-oplog = true
+
+resume-name = "sinpay_demo_resume"
+
+# namespace-regex = '^db\.collection$' // my namespace which I want to sync
+
+# direct-read-namespaces = ["db.collection"] // directly copy entire data to es from this name space
+index-as-update = true
+
+verbose = true
+
+exit-after-direct-reads = false
+# [[mapping]]
+# namespace = "db.collection" // my db collection from where I want to sync
+# index = "my-es-index-name" // my index where I want to sync data.

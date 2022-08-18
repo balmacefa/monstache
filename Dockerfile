@@ -20,6 +20,6 @@ RUN make release
 
 FROM rwynn/monstache-alpine:3.15.0
 
-ENTRYPOINT ["/bin/monstache"]
-
 COPY --from=build-app /app/build/linux-amd64/monstache /bin/monstache
+
+ENTRYPOINT ["/bin/monstache", "-f", "./monstache.toml"]
